@@ -325,4 +325,283 @@
             "@type": "OfferCatalog",
             "name": "BPUT Exam Resources",
             "itemListElement": {
-                "@type"
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Course",
+                    "name": "B.Tech First Year Complete Paper Collection",
+                    "provider": {
+                        "@type": "EducationalOrganization",
+                        "name": "Biju Patnaik University of Technology"
+                    }
+                },
+                "price": "0",
+                "priceCurrency": "INR",
+                "availability": "https://schema.org/InStock"
+            }
+        }
+    }
+    </script>
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+    <!-- Skip Link: Accessibility + SEO -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="bg-shapes" aria-hidden="true">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <header role="banner">
+        <div class="header-content">
+            <div class="logo" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                <span itemprop="name">Last Moment</span>
+                <meta itemprop="url" content="https://lastmoment.edu/">
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+                <span class="toggle-text">Dark Mode</span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb navigation" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/" onclick="showSection('home')">
+                <span itemprop="name"><i class="fas fa-home" aria-hidden="true"></i> Home</span>
+            </a>
+            <meta itemprop="position" content="1">
+        </span>
+    </nav>
+
+    <main id="main-content" class="container" role="main">
+        <!-- Home Section -->
+        <section id="home" class="section active" aria-labelledby="home-heading">
+            <article class="welcome-hero">
+                <header>
+                    <h1 id="home-heading">Welcome to Last Moment</h1>
+                    <p class="hero-subtitle">Your trusted source for <strong>BPUT previous year question papers</strong>. Access <em>36+ free PDF downloads</em> for B.Tech 1st Year examination preparation.</p>
+                </header>
+                
+                <div class="stats-bar" role="region" aria-label="Platform statistics">
+                    <div class="stat-item">
+                        <div class="number" aria-label="3 universities">3</div>
+                        <div class="label">Universities</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number" aria-label="12 subjects">12</div>
+                        <div class="label">Subjects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number" aria-label="36 papers">36</div>
+                        <div class="label">Papers</div>
+                    </div>
+                </div>
+            </article>
+
+            <h2 style="text-align: center; margin-bottom: 0.5rem; font-size: 1.5rem;">Select Your University</h2>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 2rem;">Choose your institution to access subject-wise resources</p>
+
+            <div class="cards-grid" role="list" aria-label="University selection">
+                <article class="card" onclick="showSection('bput')" role="listitem" tabindex="0" 
+                         aria-label="Biju Patnaik University of Technology - Available" 
+                         onkeydown="if(event.key==='Enter')showSection('bput')">
+                    <div class="card-icon"><i class="fas fa-university" aria-hidden="true"></i></div>
+                    <h3>BPUT</h3>
+                    <p>Biju Patnaik University of Technology, Odisha</p>
+                    <span class="status-badge available"><i class="fas fa-check-circle" aria-hidden="true"></i> Available</span>
+                </article>
+
+                <article class="card locked" onclick="showLockedToast('GIET')" role="listitem" tabindex="0"
+                         aria-label="Gandhi Institute of Engineering and Technology - Coming Soon"
+                         onkeydown="if(event.key==='Enter')showLockedToast('GIET')">
+                    <div class="card-icon"><i class="fas fa-school" aria-hidden="true"></i></div>
+                    <div class="lock-overlay"><i class="fas fa-lock" aria-hidden="true"></i> Coming Soon</div>
+                    <h3>GIET</h3>
+                    <p>Gandhi Institute of Engineering and Technology</p>
+                    <span class="status-badge locked"><i class="fas fa-lock" aria-hidden="true"></i> Locked</span>
+                </article>
+
+                <article class="card locked" onclick="showLockedToast('GFTA')" role="listitem" tabindex="0"
+                         aria-label="Government College of Engineering and Technology - Coming Soon"
+                         onkeydown="if(event.key==='Enter')showLockedToast('GFTA')">
+                    <div class="card-icon"><i class="fas fa-building-columns" aria-hidden="true"></i></div>
+                    <div class="lock-overlay"><i class="fas fa-lock" aria-hidden="true"></i> Coming Soon</div>
+                    <h3>GFTA</h3>
+                    <p>Government College of Engineering & Technology</p>
+                    <span class="status-badge locked"><i class="fas fa-lock" aria-hidden="true"></i> Locked</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- BPUT Section -->
+        <section id="bput" class="section" aria-labelledby="bput-heading">
+            <article class="welcome-hero" style="padding: 2rem 1rem;">
+                <header>
+                    <h1 id="bput-heading" style="font-size: 2.2rem;">BPUT Resources</h1>
+                    <p>Select your academic year to view available subjects and <strong>BPUT question papers</strong></p>
+                </header>
+            </article>
+
+            <div class="cards-grid" role="list" aria-label="Academic year selection">
+                <article class="card year-card" onclick="showSection('first-year')" role="listitem" tabindex="0"
+                         aria-label="First Year B.Tech - 12 subjects available"
+                         onkeydown="if(event.key==='Enter')showSection('first-year')">
+                    <div class="card-icon"><i class="fas fa-1" aria-hidden="true"></i></div>
+                    <h3>First Year</h3>
+                    <p>1st Year B.Tech - Common subjects for all branches</p>
+                    <span class="status-badge available"><i class="fas fa-check-circle" aria-hidden="true"></i> 12 Subjects Available</span>
+                </article>
+
+                <article class="card year-card locked" onclick="showLockedToast('Second Year')" role="listitem" tabindex="0"
+                         aria-label="Second Year - Coming Soon"
+                         onkeydown="if(event.key==='Enter')showLockedToast('Second Year')">
+                    <div class="card-icon"><i class="fas fa-2" aria-hidden="true"></i></div>
+                    <div class="lock-overlay"><i class="fas fa-lock" aria-hidden="true"></i> Coming Soon</div>
+                    <h3>Second Year</h3>
+                    <p>2nd Year B.Tech - Branch specific subjects</p>
+                    <span class="status-badge locked"><i class="fas fa-lock" aria-hidden="true"></i> Locked</span>
+                </article>
+
+                <article class="card year-card locked" onclick="showLockedToast('Third Year')" role="listitem" tabindex="0"
+                         aria-label="Third Year - Coming Soon"
+                         onkeydown="if(event.key==='Enter')showLockedToast('Third Year')">
+                    <div class="card-icon"><i class="fas fa-3" aria-hidden="true"></i></div>
+                    <div class="lock-overlay"><i class="fas fa-lock" aria-hidden="true"></i> Coming Soon</div>
+                    <h3>Third Year</h3>
+                    <p>3rd Year B.Tech - Advanced core subjects</p>
+                    <span class="status-badge locked"><i class="fas fa-lock" aria-hidden="true"></i> Locked</span>
+                </article>
+
+                <article class="card year-card locked" onclick="showLockedToast('Fourth Year')" role="listitem" tabindex="0"
+                         aria-label="Fourth Year - Coming Soon"
+                         onkeydown="if(event.key==='Enter')showLockedToast('Fourth Year')">
+                    <div class="card-icon"><i class="fas fa-4" aria-hidden="true"></i></div>
+                    <div class="lock-overlay"><i class="fas fa-lock" aria-hidden="true"></i> Coming Soon</div>
+                    <h3>Fourth Year</h3>
+                    <p>4th Year B.Tech - Electives & Projects</p>
+                    <span class="status-badge locked"><i class="fas fa-lock" aria-hidden="true"></i> Locked</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- First Year Subjects -->
+        <section id="first-year" class="section" aria-labelledby="subjects-heading">
+            <article class="welcome-hero" style="padding: 2rem 1rem;">
+                <header>
+                    <h1 id="subjects-heading" style="font-size: 2.2rem;">First Year Subjects</h1>
+                    <p>Choose a subject to access <strong>previous year BPUT question papers</strong> (2023-2025)</p>
+                </header>
+            </article>
+
+            <div class="cards-grid subjects-grid" id="subjects-grid" role="list" aria-label="Subject selection">
+                <!-- Subjects populated by JS for interactivity, but pre-rendered below for SEO crawlers -->
+                <noscript>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Physics - 23BS1002</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-physics-23bs1002-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-2-sem-physics-23bs1002-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-1-sem-physics-rph1a001-2023.pdf" target="_blank" rel="noopener noreferrer">2023 Paper</a></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Chemistry - 23BS1003</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-chemistry-23bs1003-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-1-sem-chemistry-23bs1003-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-1-sem-chemistry-rch1a002-2023.pdf" target="_blank" rel="noopener noreferrer">2023 Paper</a></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Mathematics I - 23BS1001</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-mathematics-1-23bs1001-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-1-sem-mathematics-1-23bs1001-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-1-sem-mathematics-1-rma1a001-2023.pdf" target="_blank" rel="noopener noreferrer">2023 Paper</a></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Mathematics II - 23BS1004</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-mtech-2-sem-mathematics-2-23bs1004-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-2-sem-mathematics-2-23bs1004-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-2-sem-mathematics-2-rma2a001-2023.pdf" target="_blank" rel="noopener noreferrer">2023 Paper</a></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Basic Mechanical Engineering - 23ES1006</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-basic-mechanical-engineering-23es1006-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-1-sem-basic-mechanical-engineering-23es1006-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <span>2023 Unavailable</span></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Basic Electrical Engineering - 23ES1001</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-basic-electrical-engineering-23es1001-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-2-sem-basic-electrical-engineering-23es1001-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-1-sem-basic-electrical-engineering-rbe1b001-2023.pdf" target="_blank" rel="noopener noreferrer">2023 Paper</a></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>C Programming & Data Structures - 23ES1003</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-programming-in-c-and-data-structure-23es1003-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-2-sem-programming-in-c-and-data-structure-23es1003-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <span>2023 Unavailable</span></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Basic Electronics - 23ES1002</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-basic-electronics-23es1002-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-1-sem-basic-electronics-engineering-rbl1b002-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-1-sem-basic-electronics-engineering-rbl1b002-2023.pdf" target="_blank" rel="noopener noreferrer">2023 Paper</a></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Universal Human Values - 23HS1001</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-universal-human-values-23hs1001-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-1-sem-universal-human-values-23hs1001-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <span>2023 Unavailable</span></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Basic Civil Engineering - 23ES1005</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-basic-civil-engineering-23es1005-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-1-sem-basic-civil-engineering-23es1005-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-1-sem-basic-civil-engineering-rbc1b002-2023.pdf" target="_blank" rel="noopener noreferrer">2023 Paper</a></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>Engineering Mechanics - 23ES1004</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-engineering-mechanics-23es1004-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-1-sem-engineering-mechanics-23es1004-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-2-sem-engineering-mechanics-rem2b001-2023.pdf" target="_blank" rel="noopener noreferrer">2023 Paper</a></p>
+                    </article>
+                    <article class="card subject-card" role="listitem">
+                        <h3>English for Technical Writing - 23HS1002</h3>
+                        <p><a href="https://www.bputonline.com/papers/btech-1-sem-english-for-technical-writing-23hs1002-2025.pdf" target="_blank" rel="noopener noreferrer">2025 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-mtech-1-sem-english-for-technical-writing-23hs1002-2024.pdf" target="_blank" rel="noopener noreferrer">2024 Paper</a> | 
+                           <a href="https://www.bputonline.com/papers/btech-1-sem-communicative-english-rce1e001-2023.pdf" target="_blank" rel="noopener noreferrer">2023 Paper</a></p>
+                    </article>
+                </noscript>
+            </div>
+        </section>
+
+        <!-- Papers Section -->
+        <section id="papers" class="section" aria-labelledby="papers-heading">
+            <article class="papers-container">
+                <header class="papers-header">
+                    <h2 id="papers-heading" itemprop="headline">Subject Question Papers</h2>
+                    <p>Previous Year <strong>BPUT Examination Papers</strong> - Select a year to download/view PDF</p>
+                </header>
+
+                <div class="years-row" id="years-row" role="list" aria-label="Year selection">
+                    <!-- Year cards populated by JS -->
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+            <p>Made with <i class="fas fa-heart heart" aria-label="love"></i> for BPUT Students | 
+               <span itemprop="name">Last Moment</span> &copy; <span itemprop="copyrightYear">2025</span></p>
+            <meta itemprop="url" content="https://lastmoment.edu/">
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+        <i class="fas fa-lock" aria-hidden="true"></i>
+        <span id="toast-message">Coming Soon!</span>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
