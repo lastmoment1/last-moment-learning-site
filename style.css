@@ -904,4 +904,96 @@ footer .heart {
     
     .stat-item .number {
         font-size: 2rem;
- 
+    }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+body.dark-mode {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+}
+
+body.dark-mode .card,
+body.dark-mode .papers-container,
+body.dark-mode .stat-item {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .card h3,
+body.dark-mode .papers-header h2,
+body.dark-mode .breadcrumb .current {
+    color: #f1f5f9;
+}
+
+body.dark-mode .card p,
+body.dark-mode .papers-header p,
+body.dark-mode .hero-subtitle {
+    color: #94a3b8;
+}
+
+body.dark-mode .year-paper-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-color: #334155;
+}
+
+body.dark-mode .source-link.unavailable {
+    background: #334155;
+    color: #64748b;
+}
+
+body.dark-mode .stat-item:hover {
+    border-color: #475569;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    .bg-shapes,
+    .theme-toggle,
+    .toast,
+    .lock-overlay {
+        display: none !important;
+    }
+    
+    .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    body {
+        background: white;
+    }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--gray-100);
+}
