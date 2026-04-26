@@ -466,4 +466,216 @@ function showPapers(subjectKey) {
                     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
                     ${year} Examination
                 </div>
-                <div class="pap
+                <div class="paper-info">
+                    ${isAvailable 
+                        ? `<i class="fas fa-file-pdf" style="color: var(--danger);" aria-hidden="true"></i> 
+                           <span>PDF Question Paper</span>
+                           <br><small style="color: var(--gray-500);">Subject Code: ${subject.code}</small>` 
+                        : `<i class="fas fa-clock" style="color: var(--accent);" aria-hidden="true"></i> 
+                           <span>Paper Not Available Yet</span>
+                           <br><small style="color: var(--gray-500);">Check back later for updates</small>`
+                    }
+                </div>
+                ${isAvailable 
+                    ? `<a href="${paper.url}" 
+                          target="_blank" 
+                          rel="noopener noreferrer nofollow"
+                          class="source-link" 
+                          onclick="handlePaperClick(this); trackDownload('${subjectKey}', ${year})"
+                          ${trackAttrs}
+                          aria-label="Download ${subject.name} ${year} paper PDF">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                        <span>Open PDF</span>
+                        <span class="spinner" style="display: none; margin-left: 8px;" aria-hidden="true"></span>
+                       </a>`
+                    : `<button class="source-link unavailable" disabled aria-disabled="true">
+                        <i class="fas fa-lock" aria-hidden="true"></i>
+                        <span>Unavailable</span>
+                       </button>`
+                }
+            </article>
+        `;
+    });
+    
+    yearsRow.innerHTML = html;
+    showSection('papers');
+}
+
+// ============================================
+// PAPER CLICK HANDLER
+// ============================================
+function handlePaperClick(link) {
+    const spinner = link.querySelector('.spinner');
+    const icon = link.querySelector('.fa-external-link-alt');
+    const text = link.querySelector('span:not(.spinner)');
+    
+    if (spinner) spinner.style.display = 'inline-block';
+    if (icon) icon.style.display = 'none';
+    if (text) text.textContent = 'Opening...';
+    
+    setTimeout(() => {
+        if (spinner) spinner.style.display = 'none';
+        if (icon) icon.style.display = 'inline-block';
+        if (text) text.textContent = 'Open PDF';
+    }, 1500);
+}
+
+function trackDownload(subject, year) {
+    trackEvent('paper_download', {
+        subject: subject,
+        year: year,
+        timestamp: new Date().toISOString()
+    });
+}
+
+// ============================================
+// UPDATE BREADCRUMB
+// ============================================
+function updateBreadcrumb(sectionId) {
+    const crumb = document.getElementById('breadcrumb');
+    if (!crumb) return;
+    
+    const sections = {
+        'home': { name: 'Home', icon: 'fa-home' },
+        'bput': { name: 'BPUT', icon: 'fa-university' },
+        'first-year': { name: 'First Year', icon: 'fa-1' },
+        'papers': { name: 'Papers', icon: 'fa-file-pdf' }
+    };
+    
+    let html = '';
+    let position = 1;
+    
+    // Always start with Home
+    html += `
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/" onclick="showSection('home')">
+                <span itemprop="name"><i class="fas fa-home" aria-hidden="true"></i> Home</span>
+            </a>
+            <meta itemprop="position" content="${position}">
+        </span>
+    `;
+    
+    if (sectionId !== 'home') {
+        const path = [];
+        if (sectionId === 'bput' || sectionId === 'first-year' || sectionId === 'papers') path.push('bput');
+        if (sectionId === 'first-year' || sectionId === 'papers') path.push('first-year');
+        if (sectionId === 'papers') path.push('papers');
+        
+        path.forEach((sec, idx) => {
+            position++;
+            const isLast = idx === path.length - 1;
+            const section = sections[sec];
+            
+            html += `<span class="separator" aria-hidden="true">/</span>`;
+            
+            if (isLast) {
+                html += `
+                    <span class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span itemprop="name">${section.name}</span>
+                        <meta itemprop="position" content="${position}">
+                    </span>
+                `;
+            } else {
+                html += `
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="#${sec}" onclick="showSection('${sec}')">
+                            <span itemprop="name">${section.name}</span>
+                        </a>
+                        <meta itemprop="position" content="${position}">
+                    </span>
+                `;
+            }
+        });
+    }
+    
+    crumb.innerHTML = html;
+}
+
+// ============================================
+// LOCKED TOAST
+// ============================================
+function showLockedToast(name) {
+    const toast = document.getElementById('toast');
+    const msg = document.getElementById('toast-message');
+    
+    if (!toast || !msg) return;
+    
+    msg.textContent = `${name} is Coming Soon! Stay tuned for updates.`;
+    toast.classList.add('show');
+    
+    // Announce to screen readers
+    toast.setAttribute('role', 'alert');
+    
+    // Track event
+    trackEvent('locked_content_click', { content: name });
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// ============================================
+// THEME TOGGLE
+// ============================================
+let isDark = false;
+function toggleTheme() {
+    isDark = !isDark;
+    document.body.classList.toggle('dark-mode');
+    
+    const btn = document.querySelector('.theme-toggle');
+    const icon = btn.querySelector('i');
+    const text = btn.querySelector('.toggle-text');
+    
+    if (isDark) {
+        icon.className = 'fas fa-sun';
+        text.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        icon.className = 'fas fa-moon';
+        text.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+    }
+    
+    // Track theme change
+    trackEvent('theme_toggle', { theme: isDark ? 'dark' : 'light' });
+}
+
+// Restore theme preference
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        toggleTheme();
+    }
+})();
+
+// ============================================
+// KEYBOARD NAVIGATION
+// ============================================
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        if (navHistory.length > 1) {
+            navHistory.pop();
+            const prev = navHistory[navHistory.length - 1];
+            showSection(prev);
+        }
+    }
+});
+
+// ============================================
+// PERFORMANCE: Preload critical resources
+// ============================================
+function preloadResource(url, as, type) {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.href = url;
+    link.as = as;
+    if (type) link.type = type;
+    if (as === 'font') link.crossOrigin = 'anonymous';
+    document.head.appendChild(link);
+}
+
+// Preload next likely resources
+document.addEventListener('DOMContentLoaded', function() {
+    // Preload first subject papers (most likely click)
+    preloadResource('https://www.bputonline.com/papers/btech-1-sem-physics-23bs1002-2025.pdf', 'document');
+});
